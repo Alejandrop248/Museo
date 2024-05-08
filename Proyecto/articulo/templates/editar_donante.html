@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Donante</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+    <style>
+       body {
+    font-family: 'MedievalSharp', cursive;
+    background-color: #a78e6f; /* color marrón */
+    color: #5c4830; /* color piel */
+    background-image: url('/static/images/pergamino1.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.articulo {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 40%;
+    margin: 10px auto;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    background-image: url('/static/images/cuadro3.png');
+    background-size: cover;
+    box-shadow: 2px 2px 0px #5c4830;
+}
+
+.editar-btn, .eliminar-btn, .logout-btn {
+    width: 48%;
+    background-color: #967252;
+    color: white;
+    padding: 5px 10px;
+    margin: 4px 2% 0;
+    border: 2px solid #5c4830;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'MedievalSharp', cursive;
+    font-size: 14px;
+    text-transform: uppercase;
+    box-shadow: 2px 2px 0px #5c4830;
+    display: inline-block;
+}
+    </style>
+</head>
+<body>
+    <h1>EDITAR DONANTE</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar cambios</button>
+        <button type="reset" onclick="return confirm('¿Estás seguro de que quieres limpiar el formulario?');">Limpiar</button>
+    </form>
+    <a href="{% url 'vista_principal' %}" class="logout-btn">Regresar al menú principal</a>
+</body>
+</html>

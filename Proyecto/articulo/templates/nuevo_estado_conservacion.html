@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <style>
+        body {
+             font-family: 'MedievalSharp', cursive;
+             background-color: #a78e6f; /* color marrón */
+             color: #5c4830; /* color piel */
+             background-image: url('/static/images/pergamino1.jpg');
+             background-repeat: no-repeat;
+             background-attachment: fixed;
+             background-size: cover;
+         }
+         
+         form {
+             margin: auto;
+             width: 40%; /* Ancho más reducido */
+             padding: 10px;
+             border: 1px solid #ccc;
+             border-radius: 10px;
+             background-color: rgba(255, 255, 255, 0.8);
+             background-image: url('/static/images/cuadro3.png');
+             background-size: cover;
+         }
+         
+         /* Estilos para los botones más pequeños */
+         form button, .consultar-btn, .logout-btn {
+             width: 100%;
+             background-color: #967252; /* Color madera */
+             color: white;
+             padding: 5px 10px; /* Padding reducido */
+             margin: 4px 0; /* Margin reducido */
+             border: 2px solid #5c4830; /* Borde oscuro para efecto antiguo */
+             border-radius: 4px;
+             cursor: pointer;
+             font-family: 'MedievalSharp', cursive; /* Fuente medieval */
+             font-size: 14px; /* Tamaño de fuente más pequeño */
+             text-transform: uppercase; /* Texto en mayúsculas */
+             box-shadow: 2px 2px 0px #5c4830; /* Sombra para efecto de profundidad */
+             display: inline-block; /* Para que se aplique el ancho del 100% */
+             text-align: center; /* Para centrar el texto */
+             transition: background-color 0.3s ease; /* Transición suave al cambiar de color */
+         }
+         
+         form button:hover, .consultar-btn:hover, .logout-btn:hover {
+             background-color: #a68b45; /* Color más claro al pasar el ratón */
+         }
+         
+         form button[type="reset"], .logout-btn {
+             background-color: #8b5e3c; /* Color rojizo para el botón limpiar y cerrar sesión */
+         }
+         
+         form button[type="reset"]:hover, .logout-btn:hover {
+             background-color: #7a4e34; /* Color más oscuro al pasar el ratón */
+         }
+     </style>
+    <title>Nuevo Estado Conservacion</title>
+</head>
+<body>
+    <h1>NUEVO ESTADO CONSERVACION</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+        <button type="reset" onclick="return confirm('¿Estás seguro de que quieres limpiar el formulario?');">Limpiar</button>
+    </form>
+    <a href="{% url 'vista_principal' %}" class="logout-btn">Regresar al menú principal</a>
+    <!-- ... tu script ... -->
+</body>
+</html>
